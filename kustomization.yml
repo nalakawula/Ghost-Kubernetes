@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ghost
+labels:
+  - pairs:
+      app: ghost
+    includeSelectors: true
+resources:
+- deployment.yml
+- service.yml
+- volume.yml
+
+configMapGenerator:
+  - name: ghost
+    envs:
+    - .env

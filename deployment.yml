@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost-deployment
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: ghost
+        image: docker.io/library/ghost:5-alpine
+        envFrom:
+        - configMapRef: 
+            name: ghost
+        ports:
+        - containerPort: 2368
+        volumeMounts:
+        - mountPath: /var/lib/ghost/content
+          name: ghost-pvc
+      volumes:
+      - name: ghost-pvc
+        persistentVolumeClaim:
+          claimName: ghost-pvc
