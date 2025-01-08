@@ -36,3 +36,20 @@ replicaset.apps/ghost-deployment-64bd5485c7   0         0         0       24h
 replicaset.apps/ghost-deployment-845d5f856c   0         0         0       25h
 replicaset.apps/ghost-deployment-857cd477bd   0         0         0       25h
 ```
+
+Check log
+
+```bash
+kubectl -n ghost logs -l app=ghost -f
+
+[2025-01-08 07:48:25] INFO [Recommendations] Updating recommendations metadata
+[2025-01-08 08:24:40] INFO Worker for job "mentions-email-report" online
+[2025-01-08 08:24:40] INFO Worker for job mentions-email-report sent a message: done
+[2025-01-08 08:44:32] INFO "GET /favicon.ico" 200 6ms
+[2025-01-08 08:44:32] INFO "GET /" 200 840ms
+[2025-01-08 08:44:32] INFO "GET /assets/fonts/inter-roman.woff2?v=df1cdcc4e6" 200 7ms
+[2025-01-08 08:44:32] INFO "GET /assets/built/screen.css?v=df1cdcc4e6" 200 12ms
+[2025-01-08 08:44:32] INFO "GET /public/cards.min.js?v=df1cdcc4e6" 200 10ms
+[2025-01-08 08:44:32] INFO "GET /public/cards.min.css?v=df1cdcc4e6" 200 11ms
+[2025-01-08 08:44:32] INFO "GET /assets/built/source.js?v=df1cdcc4e6" 200 13ms
+```
