@@ -11,7 +11,7 @@ spec:
       - name: ghost
         image: docker.io/library/ghost:5-alpine
         envFrom:
-        - configMapRef: 
+        - configMapRef:
             name: ghost
         ports:
         - containerPort: 2368
